@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bootstrap-fileinput-master/css/fileinput.min.css">
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Bootstrap -->
+    <script src="bootstrap-fileinput-master/js/fileinput.min.js"></script>
+    <script src="bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.min.css">
+    <!-- Custom CSS to override-->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1><span class="underline">Catch</span></h1>
+            <h3>Trust us, we will find it</h3>
+            <br>
+            <!-- Trigger the modal with a button -->
+            <a href="maps/ExperimentHeatMaps.html"><button type="button" class="btn btn-info btn-lg menu-button-override" data-toggle="#" data-target="#">VIEW MAP</button></a>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg menu-button-override" data-toggle="modal" data-target="#myModal">REPORT</button>
+        </div>
+    </header>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog form-override">
+            <!-- Modal content-->
+            <form id="POST-form" onsubmit="submitFunction()">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="label label-primary label-override">DESCRIPTION</span>
+                        <br/>
+                        <br/>
+                        <label>Colour of the net</label>
+                        <br/>
+                        <div class="form-group" id="label1">
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" value="Red">Red</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" value="Blue">Blue</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" value="Green">Green</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" value="Grey">Grey</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" value="Black">Black</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" value="White">White/Clear</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" value="Brown">Brown/Unknown</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="usr">Size of the mesh</label>
+                            <input type="text" value="9" name="scale1" id="label2">
+                            <script>
+                                $("input[name='scale1']").TouchSpin({
+                                    min: 0,
+                                    max: 500,
+                                    step: 3,
+                                    boostat: 5,
+                                    maxboostedstep: 10,
+                                    postfix: 'mm'
+                                });
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label for="usr">Size of the twine</label>
+                            <input type="text" value="2.0" name="scale3" id="label3">
+                            <script>
+                                $("input[name='scale3']").TouchSpin({
+                                    min: 0,
+                                    max: 10,
+                                    step: 0.2,
+                                    decimals: 2,
+                                    boostat: 5,
+                                    maxboostedstep: 10,
+                                    postfix: 'mm'
+                                });
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label for="usr">Number of the strand</label>
+                            <input type="text" value="0" name="scale2" id="label4">
+                            <script>
+                                $("input[name='scale2']").TouchSpin({
+                                    min: 0,
+                                    max: 5,
+                                    step: 1,
+                                    boostat: 5,
+                                    maxboostedstep: 1
+                                });
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label for="usr">Net Code</label>
+                            <select class="form-control" name="netCode" id="netCodeList">
+                              <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
+                        <div id="append-to-this">
+                        </div>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-default submit-override" id="search-button" onclick="searchNet();displayFunction();getLocation();">Search</button>
+                    <!-- <input id="input-id" type="file" class="btn btn-default btn-file" data-preview-file-type="text"> -->
+                    <!-- <textarea type="text" class="form-control textarea-override" id="usr" rows="3" disabled></textarea> -->
+                    <!--Dynamically add this later on done-->
+                    <!--Add this dynamically later
+                     <button type="submit" class="btn btn-default submit-override">Submit</button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script>
+        // Closes the sidebar menu
+        $("#menu-close").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+
+        // Opens the sidebar menu
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+
+        // Scrolls to the selected menu item on the page
+        $(function() {
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="js/moment.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

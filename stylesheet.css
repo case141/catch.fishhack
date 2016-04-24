@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+.dropdown-override {
+width: 40%;
+}
+.submit-override {
+margin: 0 0 5% 50%;
+transform: translateX(-50%);
+width: 20%;
+}
+h1,
+h3 {
+color: #FFFFFF;
+}
+.underline {
+	border-bottom: 2px solid white;
+	margin-bottom: 5%;
+}
+.textarea-override {
+	width: 70%;
+	margin: 5% auto;
+	text-align: center;
+}
+.menu-button-override {
+	margin: 0 1%;
+	transition: 0.3s ease-in-out;
+}
+.label-override {
+	padding: 0.5em 5em;
+	font-size: 1.2em;
+	text-decoration: underline;
+}

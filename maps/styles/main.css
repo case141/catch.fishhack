@@ -1,0 +1,35 @@
+body { 
+	margin:0; 
+	padding:0; 
+}
+#map { 
+	position: absolute; 
+	top:0; bottom: 0; 
+	width: 100%; 
+	z-index: 0;
+}
+#sidebar { 
+	top: 0; 
+	position: absolute; 
+	z-index: 4; 
+	display: block; 
+	width:20%;
+	height:90%;
+	margin: 10px 0 10px 10px;
+	background: white;
+	border-radius: 2px;
+}
+#legend{
+	border-radius: 2px;
+	top:10px;
+	position: absolute; 
+	z-index: 5; 
+	display: block; 
+	zoom: 40%;
+	right:10px;
+	margin: 10px 10px 10px 0;
+	background: white;
+}
+
+.carddemoBasicUsage .card-media {
+  background-color: #999999; }
